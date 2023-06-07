@@ -1,4 +1,11 @@
 buildscript {
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://maven.neshan.org/artifactory/public-maven" }
+    }
+
     ext {
         compose_version = '1.4.0-beta01'
     }
