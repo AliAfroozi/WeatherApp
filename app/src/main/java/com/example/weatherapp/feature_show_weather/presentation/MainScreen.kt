@@ -36,13 +36,16 @@ fun MainScreen(mainActivity: MainActivity) {
                 composable(
                     "map",
                 ) {
+                    MapScreen(navController)
                 }
 
                 composable(
                     "weather_result/{lat}/{long}",
                     arguments = listOf(navArgument("lat") { type = NavType.StringType } , navArgument("long") { type = NavType.StringType })
                 ) {
-
+                    val lat = it.arguments?.getString("lat")
+                    val long = it.arguments?.getString("long")
+                    WeatherScreen(lat?.toDouble() , long?.toDouble(), navController)
                 }
             }
         }
